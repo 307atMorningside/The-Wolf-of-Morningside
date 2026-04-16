@@ -93,6 +93,7 @@ body {
 /* POEMS */
 .poem-container {
   max-width: 700px;
+  scroll-margin-top: 120px;
   margin: 0 auto 150px auto;
   opacity: 0;
   transform: translateY(40px);
@@ -118,19 +119,39 @@ body {
   line-height: 2;
   color: #e6e6e6; /* MUCH more readable */
 }
+
+.poem-menu a {
+  text-decoration: none;
+  color: #888;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.poem-menu a:hover {
+  color: #ffffff;
+  transform: translateX(4px); /* subtle motion */
+}
+
+.poem-menu a.active {
+  color: #ffffff;
+  border-left: 2px solid #ffffff;
+  padding-left: 8px;
+}
+  
 </style>
 </head>
 <body>
 
 <div class="poem-menu">
-  <select id="poemSelect">
-    <option value="">Select a poem</option>
-    <option value="poem1">The end</option>
-    <option value="poem2">Born again</option>
-    <option value="poem3">(No title)</option>
-    <option value="poem4">Jester</option>
-    <option value="poem5">On the inside</option>
-  </select>
+  <ul>
+    <li><a href="#poem1">The end</a></li>
+    <li><a href="#poem2">Born again</a></li>
+    <li><a href="#poem3">(No title)</a></li>
+    <li><a href="#poem4">Jester</a></li>
+    <li><a href="#poem5">On the inside</a></li>
+  </ul>
 </div>
   
 <div class="fancy-hero">
