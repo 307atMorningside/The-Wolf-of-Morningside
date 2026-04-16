@@ -8,6 +8,8 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
+    scroll-behavior: smooth;
+    
     body {
       margin: 0;
       padding: 0;
@@ -74,10 +76,39 @@
       font-size: 1.0rem;
       line-height: 2.2;
     }
+
+    .poem-menu {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.poem-menu select {
+  background-color: #111;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  padding: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
 
+<div class="poem-menu">
+  <select id="poemSelect">
+    <option value="">Select a poem</option>
+    <option value="poem1">The end</option>
+    <option value="poem2">Born again</option>
+    <option value="poem3">(No title)</option>
+    <option value="poem4">Jester</option>
+    <option value="poem5">On the inside</option>
+  </select>
+</div>
+  
 <div class="fancy-hero">
   <div class="hero-text">
     <h1>The Wolf of Morningside</h1>
@@ -113,8 +144,8 @@
 
 <div class="fancy-content">
 
-  <div class="poem-container hidden">
-    <h2 class="poem-title">The end</h2>
+<div class="poem-container hidden" id="poem1">
+<h2 class="poem-title">The end</h2>
     <p class="poem-body">
       I sit and ask myself, what has my life amounted to?<br>
       My vision blurred by apparitions of the past,<br>
@@ -149,8 +180,8 @@
     </p>
   </div>
 
-  <div class="poem-container hidden">
-    <h2 class="poem-title">Born again</h2>
+<div class="poem-container hidden" id="poem2">
+<h2 class="poem-title">Born again</h2>
     <p class="poem-body">
       Today marks the start of a new calendar,<br>
       The sun shines a warm dawn on the lone wanderer,<br>
@@ -181,8 +212,8 @@
     </p>
   </div>
 
-  <div class="poem-container hidden">
-    <h2 class="poem-title">(No title)</h2>
+<div class="poem-container hidden" id="poem3">
+<h2 class="poem-title">(No title)</h2>
     <p class="poem-body">
       The gnawing hole deep inside,<br>
       Unknown to all, unknown to me,<br>
@@ -207,8 +238,8 @@
     </p>
   </div>
 
-  <div class="poem-container hidden">
-    <h2 class="poem-title">Jester</h2>
+<div class="poem-container hidden" id="poem4">
+<h2 class="poem-title">Jester</h2>
     <p class="poem-body">
       Stab myself just to feel,<br>
       As if I am real.<br><br>
@@ -266,8 +297,8 @@
     </p>
   </div>
 
-  <div class="poem-container hidden">
-    <h2 class="poem-title">On the inside</h2>
+<div class="poem-container hidden" id="poem5">
+<h2 class="poem-title">On the inside</h2>
     <p class="poem-body">
       I searched for transcendence in man,<br>
       And found an empty home—no solace.<br><br>
@@ -324,6 +355,17 @@
         observer.observe(poem);
       });
     });
+    const select = document.getElementById("poemSelect");
+
+select.addEventListener("change", function () {
+  const target = document.getElementById(this.value);
+  if (target) {
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+});
   </script>
 
 </body>
